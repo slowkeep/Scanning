@@ -10,4 +10,4 @@ curl -s -X GET https://wordpress.org/support/article/pages/ | grep -E 'wp-conten
 
 Extract versions in general
 
-curl -H 'Cache-Control: no-cache, no-store' -L -ik -s https://wordpress.org/support/article/pages/ | grep http | grep -E '?ver=' | sed -E 's,href=|src=,THIIIIS,g' | awk -F "THIIIIS" '{print $2}' | cut -d "'" -f2
+curl -H 'Cache-Control: no-cache, no-store' -L -is https://wordpress.org/support/article/pages/ | grep http | grep -E '\?ver=' | sed -E 's,href=|src=,THIIIIS,g' | awk -F "THIIIIS" '{print $2}' | cut -d "'" -f2
